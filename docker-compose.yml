@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  php:
+    container_name: weather-app
+    build: ./.docker/php
+    restart: always
+    working_dir: /application
+    volumes:
+    - ".:/application"
