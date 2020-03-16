@@ -1,8 +1,10 @@
 <?php
 
-use App\DTO\WeatherDTO;
-use App\Contracts\IStorageService;
-use App\Services\OpenWeatherService;
-use App\WeatherApplicationFacade;
+require_once __DIR__ . '/../vendor/autoload.php';
 
+use App\DTO\GeoDTO;
 
+$t = new GeoDTO(1,2);
+print_r($t);
+
+?>

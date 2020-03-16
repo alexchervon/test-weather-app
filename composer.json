@@ -1,5 +1,6 @@
 {
     "name": "chervon/weather-app",
+    "type": "project",
     "description": "",
     "license": "MIT",
     "authors": [
