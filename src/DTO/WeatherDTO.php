@@ -6,7 +6,7 @@
  * Time: 22:35
  */
 
-namespace chervon\Application\DTO;
+namespace App\DTO;
 
 
 class WeatherDTO extends BaseEntity

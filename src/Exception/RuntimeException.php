@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace chervon\weather\Exception;
+namespace App\Exception;
 
 class RuntimeException extends \RuntimeException
 {

@@ -6,11 +6,11 @@
  * Time: 22:34
  */
 
-namespace chervon\Application\Contracts;
+namespace App\Contracts;
 
 
-use chervon\Application\DTO\GeoDTO;
-use chervon\Application\DTO\WeatherDTO;
+use App\DTO\GeoDTO;
+use App\DTO\WeatherDTO;
 
 interface IWeatherService
 {

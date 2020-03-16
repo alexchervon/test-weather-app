@@ -6,7 +6,7 @@
  * Time: 22:37
  */
 
-namespace chervon\Application\DTO;
+namespace App\DTO;
 
 
 abstract class BaseEntity

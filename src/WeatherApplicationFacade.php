@@ -2,23 +2,21 @@
 
 declare(strict_types=1);
 
-namespace chervon\weather;
+namespace App;
 
-use chervon\Application\Contracts\IStorageService;
-use chervon\Application\Contracts\IWeatherService;
-use chervon\Application\DTO\GeoDTO;
-use chervon\Application\DTO\WeatherDTO;
-use chervon\Exception\InvalidDTOPassed;
-use chervon\weather\Exception\LogicException;
+use App\Contracts\IStorageService;
+use App\Contracts\IWeatherService;
+use App\DTO\GeoDTO;
+use App\Exception\InvalidDTOPassed;
 
 class WeatherApplicationFacade
 {
-    private $weatherService;
+    private $WeatherService;
     private $geoDTO;
 
-    public function __construct(IWeatherService $weatherService)
+    public function __construct(IWeatherService $WeatherService)
     {
-        $this->weatherService = $weatherService;
+        $this->WeatherService = $WeatherService;
     }
 
     public function setGeo(GeoDTO $geoDTO)
@@ -37,8 +35,8 @@ class WeatherApplicationFacade
     public function save(IStorageService $storageService, $path, $sort)
     {
         if ($this->geoDTO instanceof GeoDTO) {
-            $weather = $this->weatherService->getWeather($this->geoDTO);
-            $storageService->save($weather,$path);
+            $Weather = $this->WeatherService->getWeather($this->geoDTO);
+            $storageService->save($Weather,$path);
         }
 
         throw new InvalidDTOPassed(InvalidDTOPassed::MESSAGE);

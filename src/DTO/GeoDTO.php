@@ -6,11 +6,11 @@
  * Time: 22:39
  */
 
-namespace chervon\Application\DTO;
+namespace App\DTO;
 
 /**
  * Class GeoDTO
- * @package chervon\Application\DTO
+ * @package App\DTO
  */
 class GeoDTO
 {

@@ -1,11 +1,11 @@
 {
-    "name": "chervon/weather",
+    "name": "chervon/weather-app",
     "description": "",
     "license": "MIT",
     "authors": [
         {
             "name": "AlexChervon",
-            "email": "chervonalexey@gmail.com"
+            "email": "Chervonalexey@gmail.com"
         }
     ],
     "require": {
@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "chervon\\weather\\": "src/"
+            "App\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "chervon\\weather\\": [
+            "Tests\\": [
                 "tests/",
                 "tests/Fake"
             ]

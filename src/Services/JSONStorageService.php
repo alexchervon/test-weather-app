@@ -6,15 +6,15 @@
  * Time: 22:44
  */
 
-namespace chervon\Application\Services;
+namespace App\Services;
 
 
-use chervon\Application\Contracts\IStorageService;
-use chervon\Application\DTO\WeatherDTO;
+use App\Contracts\IStorageService;
+use App\DTO\WeatherDTO;
 
 class JSONStorageService implements IStorageService
 {
-    public function save(WeatherDTO $weatherDTO): bool
+    public function save(WeatherDTO $WeatherDTO, $path): bool
     {
         return true;
     }

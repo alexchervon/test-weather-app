@@ -6,7 +6,7 @@
  * Time: 23:17
  */
 
-namespace chervon\Exception;
+namespace App\Exception;
 
 
 class InvalidDTOPassed extends \Exception

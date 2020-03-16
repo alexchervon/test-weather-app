@@ -6,10 +6,10 @@
  * Time: 22:33
  */
 
-namespace chervon\Application\Services;
+namespace App\Services;
 
 
-use chervon\Application\Contracts\IWeatherService;
+use App\Contracts\IWeatherService;
 
 class OpenWeatherService implements IWeatherService
 {

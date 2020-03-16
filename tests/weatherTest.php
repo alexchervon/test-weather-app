@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace chervon\weather;
+namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 
-class weatherTest extends TestCase
+class WeatherTest extends TestCase
 {
     /**
      * @var WeatherApplicationFacade
      */
-    protected $weather;
+    protected $Weather;
 
     protected function setUp() : void
     {
-        $this->weather = new WeatherApplicationFacade;
+        $this->Weather = new WeatherApplicationFacade;
     }
 
-    public function testIsInstanceOfweather() : void
+    public function testIsInstanceOfWeather() : void
     {
-        $actual = $this->weather;
+        $actual = $this->Weather;
         $this->assertInstanceOf(WeatherApplicationFacade::class, $actual);
     }
 }
