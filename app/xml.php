@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../bootstrap/app.php';
 
 use App\DTO\GeoDTO;
+use App\WeatherApplicationFacade;
 
-$t = new GeoDTO(1,2);
-print_r($t);
-
-?>
+// location: city Perm
+$geoDTOObject = new GeoDTO(58.0192548,55.6738898);
+$weatherService = new WeatherApplicationFacade();

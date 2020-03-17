@@ -11,12 +11,12 @@ use App\Exception\InvalidDTOPassed;
 
 class WeatherApplicationFacade
 {
-    private $WeatherService;
+    private $weatherService;
     private $geoDTO;
 
-    public function __construct(IWeatherService $WeatherService)
+    public function __construct(IWeatherService $weatherService)
     {
-        $this->WeatherService = $WeatherService;
+        $this->weatherService = $weatherService;
     }
 
     public function setGeo(GeoDTO $geoDTO)
