@@ -10,11 +10,13 @@ namespace App\Services;
 
 
 use App\Contracts\IWeatherService;
+use App\DTO\GeoDTO;
+use App\DTO\WeatherDTO;
 
 class OpenWeatherService implements IWeatherService
 {
-    public function getWeather()
+    public function fetchWeather(GeoDTO $geoDTO): WeatherDTO
     {
-        // TODO: Implement getWeather() method.
+        return new WeatherDTO();
     }
 }

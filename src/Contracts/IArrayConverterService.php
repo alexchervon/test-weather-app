@@ -9,9 +9,7 @@
 namespace App\Contracts;
 
 
-use App\DTO\WeatherDTO;
-
-interface IStorageService
+interface IArrayConverterService
 {
-    public function save(array $array, string $path, string $type):bool;
+    public function convert(array $array):array;
 }

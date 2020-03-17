@@ -9,9 +9,7 @@
 namespace App\Contracts;
 
 
-use App\DTO\WeatherDTO;
-
-interface IStorageService
+interface IArraySorterService
 {
-    public function save(array $array, string $path, string $type):bool;
+    public function sort(array $array, $direction):array;
 }

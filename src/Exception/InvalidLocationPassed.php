@@ -9,7 +9,7 @@
 namespace App\Exception;
 
 
-class InvalidDTOPassed extends \Exception
+class InvalidLocationPassed extends \Exception
 {
     public const MESSAGE = 'Invalid DTO object passed';
 }

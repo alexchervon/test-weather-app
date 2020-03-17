@@ -14,5 +14,5 @@ use App\DTO\WeatherDTO;
 
 interface IWeatherService
 {
-    public function getWeather(GeoDTO $geoDTO) : WeatherDTO;
+    public function fetchWeather(GeoDTO $geoDTO) : WeatherDTO;
 }

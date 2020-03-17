@@ -4,41 +4,79 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Contracts\IArrayConverterService;
+use App\Contracts\IArraySorterService;
 use App\Contracts\IStorageService;
 use App\Contracts\IWeatherService;
 use App\DTO\GeoDTO;
-use App\Exception\InvalidDTOPassed;
+use App\DTO\WeatherDTO;
+use App\Exception\InvalidLocationPassed;
+use Psr\Container\ContainerInterface;
 
 class WeatherApplicationFacade
 {
+    /**
+     * @var IWeatherService
+     */
     private $weatherService;
-    private $geoDTO;
 
-    public function __construct(IWeatherService $weatherService)
+    /**
+     * @var IStorageService
+     */
+    private $storageService;
+
+    /**
+     * @var IArraySorterService
+     */
+    private $sorter;
+
+    private $converter;
+
+    /**
+     * @var GeoDTO
+     */
+    private $location;
+
+    /**
+     * @var array
+     */
+    private $direction = [];
+
+
+    public function __construct(ContainerInterface $container)
     {
-        $this->weatherService = $weatherService;
+        $this->weatherService = $container->get(IWeatherService::class);
+        $this->storageService = $container->get(IStorageService::class);
+        $this->sorter = $container->get(IArraySorterService::class);
+        $this->converter = $container->get(IArrayConverterService::class);
     }
 
-    public function setGeo(GeoDTO $geoDTO)
+    public function setLocation(GeoDTO $location)
     {
-        $this->geoDTO = $geoDTO;
+        $this->location = $location;
 
         return $this;
     }
 
-    /**
-     * @param IStorageService $storageService
-     * @param $path
-     * @param $sort
-     * @throws InvalidDTOPassed
-     */
-    public function save(IStorageService $storageService, $path, $sort)
+    public function setSortDirection(array $direction)
     {
-        if ($this->geoDTO instanceof GeoDTO) {
-            $Weather = $this->WeatherService->getWeather($this->geoDTO);
-            $storageService->save($Weather,$path);
+        $this->direction = $direction;
+
+        return $this;
+    }
+
+
+    public function store(string $path, string $type):bool
+    {
+        if (!$this->location || !($this->location instanceof GeoDTO)) {
+            throw new InvalidLocationPassed(InvalidLocationPassed::MESSAGE);
         }
 
-        throw new InvalidDTOPassed(InvalidDTOPassed::MESSAGE);
+        /** @var WeatherDTO $weather */
+        $weather = $this->weatherService->fetchWeather($this->location);
+        $sortedArray = $this->sorter->sort($weather->getRaw(), $this->direction);
+        $convertedArray = $this->converter->convert($sortedArray);
+
+        return $this->storageService->save($convertedArray, $path, $type);
     }
 }
