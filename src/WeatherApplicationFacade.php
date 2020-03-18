@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App;
 
 use App\Contracts\IArrayConverter;
-use App\Contracts\IArrayConverter;
 use App\Contracts\IArraySorterService;
 use App\Contracts\IStorageService;
 use App\Contracts\IWeatherService;

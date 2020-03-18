@@ -17,7 +17,7 @@ class XmlConverter implements IArrayConverter
         $xml = new SimpleXMLElement('<weather/>');
 
         array_walk_recursive($array, function ($value, $key) use ($xml) : void {
-            $xml->addChild($key, $value);
+            $xml->addChild($key, (string) $value);
         });
 
         $dom = dom_import_simplexml($xml)->ownerDocument;

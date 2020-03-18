@@ -17,7 +17,7 @@ try {
         ->setLocation($location)
         ->setArrayConverter(XmlConverter::class)
         ->setSortDirection(['date', 'wind_speed', 'temperature'])
-        ->store('test.xml');
+        ->store('response/open-weather.xml');
 } catch (\App\Exception\InvalidLocationPassed $e) {
     print_r('Не указана локация');
 } catch (\App\Exception\InvalidArrayConverterPassed $e) {

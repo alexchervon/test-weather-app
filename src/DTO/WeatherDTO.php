@@ -26,16 +26,16 @@ class WeatherDTO extends BaseEntity
      */
     public function __construct(
         string $city,
-        string $temperature,
-        string $humidity,
-        string $pressure,
-        string $windSpeed,
-        string $windDirection,
-        string $clouds,
-        string $precipitation,
-        string $sun,
+        float $temperature,
+        float $humidity,
+        float $pressure,
+        float $windSpeed,
+        float $windDirection,
+        float $clouds,
+        float $precipitation,
+        float $sun,
         string $weather,
-        string $date
+        float $date
     ) {
         $this->city = $city;
         $this->temperature = $temperature;
