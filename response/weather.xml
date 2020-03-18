@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<weather>
+  <date>1584552473</date>
+  <wind_speed>8</wind_speed>
+  <temperature>3</temperature>
+  <city>Ust'-Kachka</city>
+  <humidity>74</humidity>
+  <pressure>1014</pressure>
+  <wind_direction>230</wind_direction>
+  <clouds>75</clouds>
+  <precipitation>0</precipitation>
+  <sun>1584498263</sun>
+  <weather>broken clouds</weather>
+</weather>

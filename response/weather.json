@@ -1,0 +1,13 @@
+{
+    "date": 1584552497,
+    "temperature": 3,
+    "wind_direction": 230,
+    "city": "Ust'-Kachka",
+    "humidity": 74,
+    "pressure": 1014,
+    "wind_speed": 8,
+    "clouds": 75,
+    "precipitation": 0,
+    "sun": 1584498263,
+    "weather": "broken clouds"
+}
