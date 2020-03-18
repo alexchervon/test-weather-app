@@ -10,8 +10,17 @@ namespace App\Services;
 
 use App\Contracts\IArraySorterService;
 
+/**
+ * Class ArraySorterService
+ * @package App\Services
+ */
 class ArraySorterService implements IArraySorterService
 {
+    /**
+     * @param array $array
+     * @param array $direction
+     * @return array
+     */
     public function sort(array $array, array $direction): array
     {
         $result = [];

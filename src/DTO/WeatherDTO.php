@@ -8,7 +8,10 @@
 
 namespace App\DTO;
 
-
+/**
+ * Class WeatherDTO
+ * @package App\DTO
+ */
 class WeatherDTO extends BaseEntity
 {
     private $city;
@@ -23,6 +26,20 @@ class WeatherDTO extends BaseEntity
     private $weather;
     private $date;
 
+    /**
+     * WeatherDTO constructor.
+     * @param string $city
+     * @param string $temperature
+     * @param string $humidity
+     * @param string $pressure
+     * @param string $windSpeed
+     * @param string $windDirection
+     * @param string $clouds
+     * @param string $precipitation
+     * @param string $sun
+     * @param string $weather
+     * @param string $date
+     */
     public function __construct(
         string $city,
         string $temperature,
@@ -50,6 +67,9 @@ class WeatherDTO extends BaseEntity
         $this->date = $date;
     }
 
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         return [

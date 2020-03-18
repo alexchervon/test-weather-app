@@ -16,16 +16,31 @@ use GuzzleHttp\ClientInterface;
 use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\CurrentWeather;
 
+/**
+ * Class OpenWeatherService
+ * @package App\Services
+ */
 class OpenWeatherService implements IWeatherService
 {
+    /**
+     * @var OpenWeatherMap
+     */
     private $client;
-    private $secret;
 
+    /**
+     * OpenWeatherService constructor.
+     * @param OpenWeatherMap $client
+     */
     public function __construct(OpenWeatherMap $client)
     {
         $this->client = $client;
     }
 
+    /**
+     * @param GeoDTO $geoDTO
+     * @return WeatherDTO
+     * @throws OpenWeatherMap\Exception
+     */
     public function fetchWeather(GeoDTO $geoDTO): WeatherDTO
     {
         $response = $this->client->getWeather([
@@ -36,6 +51,10 @@ class OpenWeatherService implements IWeatherService
         return $this->constructDTO($response);
     }
 
+    /**
+     * @param CurrentWeather $weather
+     * @return WeatherDTO
+     */
     private function constructDTO(CurrentWeather $weather)
     {
         return new WeatherDTO(

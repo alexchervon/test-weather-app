@@ -8,7 +8,10 @@
 
 namespace App\Exception;
 
-
+/**
+ * Class InvalidArrayConverterPassed
+ * @package App\Exception
+ */
 class InvalidArrayConverterPassed extends \Exception
 {
     public const MESSAGE = 'Invalid ArrayConverter passed';

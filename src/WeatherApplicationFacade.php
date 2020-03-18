@@ -4,17 +4,21 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\Contracts\IArrayConverterService;
+use App\Contracts\IArrayConverter;
 use App\Contracts\IArraySorterService;
 use App\Contracts\IStorageService;
 use App\Contracts\IWeatherService;
-use App\Converters\IArrayConverter;
+use App\Contracts\IArrayConverter;
 use App\DTO\GeoDTO;
 use App\DTO\WeatherDTO;
 use App\Exception\InvalidArrayConverterPassed;
 use App\Exception\InvalidLocationPassed;
 use Psr\Container\ContainerInterface;
 
+/**
+ * Class WeatherApplicationFacade
+ * @package App
+ */
 class WeatherApplicationFacade
 {
     /**
@@ -47,7 +51,10 @@ class WeatherApplicationFacade
      */
     private $direction = [];
 
-
+    /**
+     * WeatherApplicationFacade constructor.
+     * @param ContainerInterface $container
+     */
     public function __construct(ContainerInterface $container)
     {
         $this->weatherService = $container->get(IWeatherService::class);
@@ -55,6 +62,10 @@ class WeatherApplicationFacade
         $this->sorterService = $container->get(IArraySorterService::class);
     }
 
+    /**
+     * @param GeoDTO $location
+     * @return $this
+     */
     public function setLocation(GeoDTO $location)
     {
         $this->location = $location;
@@ -62,6 +73,10 @@ class WeatherApplicationFacade
         return $this;
     }
 
+    /**
+     * @param array $direction
+     * @return $this
+     */
     public function setSortDirection(array $direction)
     {
         $this->direction = $direction;
@@ -69,6 +84,10 @@ class WeatherApplicationFacade
         return $this;
     }
 
+    /**
+     * @param string $arrayConverter
+     * @return $this
+     */
     public function setArrayConverter(string $arrayConverter)
     {
         $this->arrayConverter = new $arrayConverter;
@@ -76,7 +95,12 @@ class WeatherApplicationFacade
         return $this;
     }
 
-
+    /**
+     * @param string $path
+     * @return bool
+     * @throws InvalidArrayConverterPassed
+     * @throws InvalidLocationPassed
+     */
     public function store(string $path):bool
     {
         if (!$this->location || !($this->location instanceof GeoDTO)) {

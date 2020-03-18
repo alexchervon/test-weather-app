@@ -8,9 +8,21 @@
 
 namespace App\Contracts;
 
-
+/**
+ * Interface IArrayConverterService
+ * @package App\Contracts
+ */
 interface IArrayConverterService
 {
+    /**
+     * @param array $array
+     * @return mixed
+     */
     public function convertToJson(array $array);
+
+    /**
+     * @param array $array
+     * @return mixed
+     */
     public function convertToXml(array $array);
 }

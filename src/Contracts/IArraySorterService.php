@@ -8,8 +8,16 @@
 
 namespace App\Contracts;
 
-
+/**
+ * Interface IArraySorterService
+ * @package App\Contracts
+ */
 interface IArraySorterService
 {
+    /**
+     * @param array $array
+     * @param array $direction
+     * @return array
+     */
     public function sort(array $array, array $direction):array;
 }

@@ -8,8 +8,14 @@
 
 namespace App\DTO;
 
-
+/**
+ * Class BaseEntity
+ * @package App\DTO
+ */
 abstract class BaseEntity
 {
+    /**
+     * @return array
+     */
     abstract public function toArray():array;
 }
