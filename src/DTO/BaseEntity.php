@@ -1,21 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: AlexChervon
- * Date: 15.03.2020
- * Time: 22:37
- */
+
+declare(strict_types=1);
 
 namespace App\DTO;
 
 /**
  * Class BaseEntity
- * @package App\DTO
  */
 abstract class BaseEntity
 {
-    /**
-     * @return array
-     */
-    abstract public function toArray():array;
+    abstract public function toArray() : array;
 }

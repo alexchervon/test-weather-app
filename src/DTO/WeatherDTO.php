@@ -1,16 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: AlexChervon
- * Date: 15.03.2020
- * Time: 22:35
- */
+
+declare(strict_types=1);
 
 namespace App\DTO;
 
 /**
  * Class WeatherDTO
- * @package App\DTO
  */
 class WeatherDTO extends BaseEntity
 {
@@ -28,17 +23,6 @@ class WeatherDTO extends BaseEntity
 
     /**
      * WeatherDTO constructor.
-     * @param string $city
-     * @param string $temperature
-     * @param string $humidity
-     * @param string $pressure
-     * @param string $windSpeed
-     * @param string $windDirection
-     * @param string $clouds
-     * @param string $precipitation
-     * @param string $sun
-     * @param string $weather
-     * @param string $date
      */
     public function __construct(
         string $city,
@@ -52,8 +36,7 @@ class WeatherDTO extends BaseEntity
         string $sun,
         string $weather,
         string $date
-    )
-    {
+    ) {
         $this->city = $city;
         $this->temperature = $temperature;
         $this->humidity = $humidity;
@@ -67,10 +50,7 @@ class WeatherDTO extends BaseEntity
         $this->date = $date;
     }
 
-    /**
-     * @return array
-     */
-    public function toArray(): array
+    public function toArray() : array
     {
         return [
             'city' => $this->city,

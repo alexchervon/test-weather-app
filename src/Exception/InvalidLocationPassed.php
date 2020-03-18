@@ -1,16 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: AlexChervon
- * Date: 15.03.2020
- * Time: 23:17
- */
+
+declare(strict_types=1);
 
 namespace App\Exception;
 
 /**
  * Class InvalidLocationPassed
- * @package App\Exception
  */
 class InvalidLocationPassed extends \Exception
 {

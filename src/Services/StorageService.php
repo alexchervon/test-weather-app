@@ -1,20 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: AlexChervon
- * Date: 15.03.2020
- * Time: 22:44
- */
+
+declare(strict_types=1);
 
 namespace App\Services;
-
 
 use App\Contracts\IStorageService;
 use League\Flysystem\Filesystem;
 
 /**
  * Class StorageService
- * @package App\Services
  */
 class StorageService implements IStorageService
 {
@@ -25,7 +19,6 @@ class StorageService implements IStorageService
 
     /**
      * StorageService constructor.
-     * @param Filesystem $filesystem
      */
     public function __construct(Filesystem $filesystem)
     {
@@ -33,15 +26,12 @@ class StorageService implements IStorageService
     }
 
     /**
-     * @param string $string
-     * @param string $path
-     * @return bool
      * @throws \League\Flysystem\FileExistsException
      * @throws \League\Flysystem\FileNotFoundException
      */
-    public function save(string $string, string $path): bool
+    public function save(string $string, string $path) : bool
     {
-        if (!$this->filesystem->has($path)) {
+        if (! $this->filesystem->has($path)) {
             $this->filesystem->write($path, $string);
         }
 

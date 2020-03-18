@@ -37,6 +37,7 @@ return \PhpCsFixer\Config::create()
         'concat_space' => ['spacing' => 'one'], // @Symfony
 //      'date_time_immutable' => true,
         'declare_equal_normalize' => true, // @Symfony
+        'declare_strict_types' => true,
         'dir_constant' => true, // @Symfony:risky
         'ereg_to_preg' => true, // @Symfony:risky
         'error_suppression' => true, // @Symfony:risky

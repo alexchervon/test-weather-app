@@ -1,17 +1,13 @@
 <?php
 
+declare(strict_types=1);
 
 namespace App\Contracts;
 
 /**
  * Interface IArrayConverter
- * @package App\Contracts
  */
 interface IArrayConverter
 {
-    /**
-     * @param array $array
-     * @return string
-     */
-    public function convert(array $array):string;
+    public function convert(array $array) : string;
 }

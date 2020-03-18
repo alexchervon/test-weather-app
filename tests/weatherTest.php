@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tests;
+namespace tests;
 
 use PHPUnit\Framework\TestCase;
 
-class WeatherTest extends TestCase
+class weatherTest extends TestCase
 {
     /**
      * @var WeatherApplicationFacade

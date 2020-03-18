@@ -1,24 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: AlexChervon
- * Date: 15.03.2020
- * Time: 22:33
- */
+
+declare(strict_types=1);
 
 namespace App\Services;
-
 
 use App\Contracts\IWeatherService;
 use App\DTO\GeoDTO;
 use App\DTO\WeatherDTO;
-use GuzzleHttp\ClientInterface;
 use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\CurrentWeather;
 
 /**
  * Class OpenWeatherService
- * @package App\Services
  */
 class OpenWeatherService implements IWeatherService
 {
@@ -29,7 +22,6 @@ class OpenWeatherService implements IWeatherService
 
     /**
      * OpenWeatherService constructor.
-     * @param OpenWeatherMap $client
      */
     public function __construct(OpenWeatherMap $client)
     {
@@ -37,11 +29,9 @@ class OpenWeatherService implements IWeatherService
     }
 
     /**
-     * @param GeoDTO $geoDTO
-     * @return WeatherDTO
      * @throws OpenWeatherMap\Exception
      */
-    public function fetchWeather(GeoDTO $geoDTO): WeatherDTO
+    public function fetchWeather(GeoDTO $geoDTO) : WeatherDTO
     {
         $response = $this->client->getWeather([
             'lat' => $geoDTO->getLat(),
@@ -52,7 +42,6 @@ class OpenWeatherService implements IWeatherService
     }
 
     /**
-     * @param CurrentWeather $weather
      * @return WeatherDTO
      */
     private function constructDTO(CurrentWeather $weather)

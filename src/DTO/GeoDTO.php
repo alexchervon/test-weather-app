@@ -1,16 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: AlexChervon
- * Date: 15.03.2020
- * Time: 22:39
- */
+
+declare(strict_types=1);
 
 namespace App\DTO;
 
 /**
  * Class GeoDTO
- * @package App\DTO
  */
 class GeoDTO
 {
@@ -19,6 +14,7 @@ class GeoDTO
 
     /**
      * GeoDTO constructor.
+     *
      * @param $lat
      * @param $lon
      */
@@ -31,7 +27,7 @@ class GeoDTO
     /**
      * @param $value
      */
-    public function setLat($value)
+    public function setLat($value) : void
     {
         $this->lat = $value;
     }
@@ -39,22 +35,16 @@ class GeoDTO
     /**
      * @param $value
      */
-    public function setLon($value)
+    public function setLon($value) : void
     {
         $this->lon = $value;
     }
 
-    /**
-     * @return mixed
-     */
     public function getLat()
     {
         return $this->lat;
     }
 
-    /**
-     * @return mixed
-     */
     public function getLon()
     {
         return $this->lon;
