@@ -12,8 +12,18 @@ use App\Contracts\IArraySorterService;
 
 class ArraySorterService implements IArraySorterService
 {
-    public function sort(array $array, $direction): array
+    public function sort(array $array, array $direction): array
     {
-        // TODO: Implement sort() method.
+        $result = [];
+
+        if (!empty($array) && !empty($direction)) {
+            foreach ($direction as $dirKey) {
+                $result[$dirKey] = $array[$dirKey];
+            }
+
+            $result = array_merge($result, $array);
+        }
+
+        return $result;
     }
 }

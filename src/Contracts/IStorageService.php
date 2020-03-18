@@ -13,5 +13,5 @@ use App\DTO\WeatherDTO;
 
 interface IStorageService
 {
-    public function save(array $array, string $path, string $type):bool;
+    public function save(string $array, string $path):bool;
 }

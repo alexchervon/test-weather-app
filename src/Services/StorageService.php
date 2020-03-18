@@ -21,9 +21,13 @@ class StorageService implements IStorageService
         $this->filesystem = $filesystem;
     }
 
-    public function save(array $array, string $path, string $type): bool
+    public function save(string $string, string $path): bool
     {
-        $this->filesystem->write($path,json_encode($array));
+        if (!$this->filesystem->has($path)) {
+            $this->filesystem->write($path, $string);
+        }
+
+        $this->filesystem->update($path, $string);
 
         return  true;
     }

@@ -11,8 +11,5 @@ namespace App\DTO;
 
 abstract class BaseEntity
 {
-    public function getRaw():array
-    {
-        return [];
-    }
+    abstract public function toArray():array;
 }

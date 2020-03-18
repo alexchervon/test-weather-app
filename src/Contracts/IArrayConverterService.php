@@ -11,5 +11,6 @@ namespace App\Contracts;
 
 interface IArrayConverterService
 {
-    public function convert(array $array):array;
+    public function convertToJson(array $array);
+    public function convertToXml(array $array);
 }

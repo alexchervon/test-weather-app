@@ -1,7 +1,7 @@
 /vendor/
 /build/
 /.idea/
-
+.env
 /composer.lock
 /phpunit.xml
 /.php_cs.cache

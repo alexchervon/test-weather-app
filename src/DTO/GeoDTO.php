@@ -43,4 +43,20 @@ class GeoDTO
     {
         $this->lon = $value;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLat()
+    {
+        return $this->lat;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLon()
+    {
+        return $this->lon;
+    }
 }

@@ -11,5 +11,5 @@ namespace App\Contracts;
 
 interface IArraySorterService
 {
-    public function sort(array $array, $direction):array;
+    public function sort(array $array, array $direction):array;
 }

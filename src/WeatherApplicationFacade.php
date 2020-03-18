@@ -8,8 +8,10 @@ use App\Contracts\IArrayConverterService;
 use App\Contracts\IArraySorterService;
 use App\Contracts\IStorageService;
 use App\Contracts\IWeatherService;
+use App\Converters\IArrayConverter;
 use App\DTO\GeoDTO;
 use App\DTO\WeatherDTO;
+use App\Exception\InvalidArrayConverterPassed;
 use App\Exception\InvalidLocationPassed;
 use Psr\Container\ContainerInterface;
 
@@ -28,9 +30,12 @@ class WeatherApplicationFacade
     /**
      * @var IArraySorterService
      */
-    private $sorter;
+    private $sorterService;
 
-    private $converter;
+    /**
+     * @var IArrayConverter
+     */
+    private $arrayConverter;
 
     /**
      * @var GeoDTO
@@ -47,8 +52,7 @@ class WeatherApplicationFacade
     {
         $this->weatherService = $container->get(IWeatherService::class);
         $this->storageService = $container->get(IStorageService::class);
-        $this->sorter = $container->get(IArraySorterService::class);
-        $this->converter = $container->get(IArrayConverterService::class);
+        $this->sorterService = $container->get(IArraySorterService::class);
     }
 
     public function setLocation(GeoDTO $location)
@@ -65,18 +69,29 @@ class WeatherApplicationFacade
         return $this;
     }
 
+    public function setArrayConverter(string $arrayConverter)
+    {
+        $this->arrayConverter = new $arrayConverter;
 
-    public function store(string $path, string $type):bool
+        return $this;
+    }
+
+
+    public function store(string $path):bool
     {
         if (!$this->location || !($this->location instanceof GeoDTO)) {
             throw new InvalidLocationPassed(InvalidLocationPassed::MESSAGE);
         }
 
+        if (!$this->arrayConverter) {
+            throw new InvalidArrayConverterPassed(InvalidArrayConverterPassed::MESSAGE);
+        }
+
         /** @var WeatherDTO $weather */
         $weather = $this->weatherService->fetchWeather($this->location);
-        $sortedArray = $this->sorter->sort($weather->getRaw(), $this->direction);
-        $convertedArray = $this->converter->convert($sortedArray);
+        $sortedArray = $this->sorterService->sort($weather->toArray(), $this->direction);
+        $convertedArray = $this->arrayConverter->convert($sortedArray);
 
-        return $this->storageService->save($convertedArray, $path, $type);
+        return $this->storageService->save($convertedArray, $path);
     }
 }
