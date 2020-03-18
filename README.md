@@ -49,12 +49,7 @@ Open [https://openweathermap.org/api](https://openweathermap.org/api) , register
 OPEN_WEATHER_API_SECRET_KEY=token_here
 ```
 
-
-End with an example of getting some data out of the system or using it for a little demo
-
 ## How to use?
-
-Explain how to run the automated tests for this system
 
 ### Create GeoDTO object, and put the necessary coordinates in it:
 
