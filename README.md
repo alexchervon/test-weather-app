@@ -1,22 +1,21 @@
 
 # Weather App
 
-Необходимо реализовать функционал, который будет получать информацию о
-погоде из любого публичного API. Он должен уметь сохранять полученные данные в файле формата json и xml в зависимости от переданного в него параметра типа файла.
+It is necessary to implement a functionality that will receive weather information from any public API. He should be able to save the received data in a json and xml format file depending on the file type parameter passed to it.
 
-*Для JSON первыми по порядку должны быть поля:*
+*Sort for JSON:*
 
- - Дата
- - Температура
- - Направление ветра
- - и.т.д
+ - Date
+ - Temperature
+ - Wind Direction
+ - e.t.c
 
-*Для XML:*
+*Sort for XML:*
 
- - Дата
- - Скорость ветра
- - Температура
- - и.т.д
+ - Date
+ - Wind speed
+ - Temperature
+ - e.t.c
 
 
 ## Installing
